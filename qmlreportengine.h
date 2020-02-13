@@ -19,11 +19,15 @@ public:
     Q_INVOKABLE void setResultEditable(bool res);
     Q_INVOKABLE void printToPDF(QString fileName);
     Q_INVOKABLE void addVariable(QString name, QVariant val);
+    Q_INVOKABLE QString lastError();
+    Q_INVOKABLE void setCurrentReportsDir(QString dir);
+    Q_INVOKABLE bool addFunction(QString name, QString script, QString category, QString description);
+    QJSEngine* scriptEngine();
 
 private:
     bool qrySet;
     bool reportLoaded;
-    LimeReport::ReportEngine *re;
+    LimeReport::ReportEngine re;
     QSqlQueryModel *model;
 };
 
